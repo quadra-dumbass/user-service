@@ -1,0 +1,13 @@
+package com.quadra.authservice.infrastructure.repository.member.schema;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "members")
+public class MemberSchema {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+}
