@@ -1,4 +1,4 @@
-package com.quadra.authservice.infrastructure.repository.user.schema;
+package com.quadra.userservice.infrastructure.repository.user.schema;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

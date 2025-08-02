@@ -1,6 +1,6 @@
-package com.quadra.authservice.domain.user.entity;
+package com.quadra.userservice.domain.user.entity;
 
-import com.quadra.authservice.domain.user.UserRole;
+import com.quadra.userservice.domain.user.UserRole;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

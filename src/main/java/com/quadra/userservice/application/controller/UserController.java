@@ -1,6 +1,6 @@
-package com.quadra.authservice.application.controller;
+package com.quadra.userservice.application.controller;
 
-import com.quadra.authservice.application.service.UserService;
+import com.quadra.userservice.application.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

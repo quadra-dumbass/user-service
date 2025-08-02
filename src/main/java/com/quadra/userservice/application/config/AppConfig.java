@@ -1,4 +1,4 @@
-package com.quadra.authservice.application.config;
+package com.quadra.userservice.application.config;
 
 import org.springframework.context.annotation.Configuration;
 

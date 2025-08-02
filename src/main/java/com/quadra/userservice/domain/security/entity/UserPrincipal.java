@@ -1,6 +1,6 @@
-package com.quadra.authservice.domain.security.entity;
+package com.quadra.userservice.domain.security.entity;
 
-import com.quadra.authservice.domain.user.entity.User;
+import com.quadra.userservice.domain.user.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
