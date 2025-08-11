@@ -1,4 +1,4 @@
-package com.quadra.userservice.domain.user;
+package com.quadra.userservice.domain.user.enums;
 
 public enum UserRole {
     ADMIN("ROLE_ADMIN"), // admin user, use this only for tests.
