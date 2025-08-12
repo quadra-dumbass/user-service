@@ -1,11 +1,12 @@
 package com.quadra.userservice.application.controller;
 
+import com.quadra.userservice.application.dto.LoginRequestDto;
+import com.quadra.userservice.application.dto.RegisterRequestDto;
 import com.quadra.userservice.application.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,7 +20,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<?> login() {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginRequestDto) {
+
         return ResponseEntity.ok("login");
     }
 

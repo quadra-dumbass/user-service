@@ -16,7 +16,7 @@ public class UserEntityMapper {
                 .build();
     }
 
-    public static UserSchema toEntity(User user) {
+    public static UserSchema toPersistence(User user) {
         boolean isAdmin = user.getRole() == UserRole.ADMIN;
         return UserSchema.builder()
                 .name(user.getName())

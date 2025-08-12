@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum LoginType {
     QUADRA("quadra"),
-    GOOGLE("gogole"),
+    GOOGLE("google"),
     KAKAO("kakao"),
     NAVER("naver");
 

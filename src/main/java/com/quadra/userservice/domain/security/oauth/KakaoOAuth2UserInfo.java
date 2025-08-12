@@ -5,7 +5,7 @@ import java.util.Map;
 // To be modified later.
 public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
 
-    private String id;
+    private final String id;
 
     @SuppressWarnings("unchecked")
     public KakaoOAuth2UserInfo(Map<String, Object> attributes) {
@@ -14,17 +14,17 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
     }
 
     @Override
-    public String getOAuth2Id() {
-        return "";
+    public String getProviderUserId() {
+        return this.id;
     }
 
     @Override
     public String getEmail() {
-        return "";
+        return (String) this.attributes.get("email");
     }
 
     @Override
     public String getName() {
-        return "";
+        return (String) this.attributes.get("name");
     }
 }

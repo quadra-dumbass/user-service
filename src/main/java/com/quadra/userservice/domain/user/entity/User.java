@@ -1,24 +1,21 @@
 package com.quadra.userservice.domain.user.entity;
 
-import com.quadra.userservice.domain.user.enums.LoginType;
 import com.quadra.userservice.domain.user.enums.UserRole;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.util.Assert;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @ToString
 @EqualsAndHashCode(of = {"id", "email"})
+// User information excluding credentials
 public class User {
-    private final Long id;
-    private final String name;
-    private final String email;
+    private final Long id; // primary key
+    private final String name; // user's name or nickname
+    private final String email; // not about credentials, but used as a representative email (for example, when receiving a letter)
     private final UserRole role;
-    // private LoginType loginType;
+    // private final LoginType loginType;
 
     @Builder
     public User(Long id, String name, String email, UserRole role) {
