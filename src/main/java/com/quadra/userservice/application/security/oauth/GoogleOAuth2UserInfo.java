@@ -1,19 +1,15 @@
-package com.quadra.userservice.domain.security.oauth;
+package com.quadra.userservice.application.security.oauth;
 
-import lombok.AllArgsConstructor;
-import org.springframework.util.Assert;
-
-import java.util.HashMap;
 import java.util.Map;
 
-public class GoogleOAuth2UserInfo extends OAuth2UserInfo{
+public class GoogleOAuth2UserInfo extends OAuth2UserInfo {
 
     public GoogleOAuth2UserInfo(Map<String, Object> attributes) {
-        super(attributes);
+        super("google", attributes);
     }
 
     @Override
-    public String getProviderUserId() {
+    public String getExternalId() {
         return (String) attributes.get("sub");
     }
 

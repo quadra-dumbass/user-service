@@ -1,6 +1,6 @@
 package com.quadra.userservice.infrastructure.repository.user;
 
-import com.quadra.userservice.domain.security.oauth.enums.OAuth2Provider;
+import com.quadra.userservice.application.security.oauth.enums.OAuth2Provider;
 import com.quadra.userservice.domain.user.entity.UserOAuthConn;
 import com.quadra.userservice.domain.user.repository.UserOAuthConnRepository;
 import com.quadra.userservice.infrastructure.repository.user.mapper.UserOAuthConnEntityMapper;
@@ -15,8 +15,7 @@ public class UserOAuthConnRepositoryImpl implements UserOAuthConnRepository {
     private final JpaUserOAuthConnRepository jpaUserOAuthConnRepository;
 
     @Override
-    public Optional<UserOAuthConn> findByProviderAndProviderUserId(OAuth2Provider provider, String providerUserId) {
-        return jpaUserOAuthConnRepository.findByProviderAndProviderUserId(provider, providerUserId)
-                .map(UserOAuthConnEntityMapper::toDomain);
+    public Optional<UserOAuthConn> findByProviderAndExternalId(OAuth2Provider provider, String providerUserId) {
+        return Optional.empty();
     }
 }

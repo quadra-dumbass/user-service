@@ -1,4 +1,4 @@
-package com.quadra.userservice.application.dto;
+package com.quadra.userservice.application.auth.dto;
 
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;

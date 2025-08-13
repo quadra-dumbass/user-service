@@ -1,22 +1,16 @@
-package com.quadra.userservice.domain.security.oauth;
+package com.quadra.userservice.application.security.oauth;
 
-import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
-import org.springframework.security.oauth2.core.OAuth2AccessToken;
-import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class NaverOAuth2UserInfo extends OAuth2UserInfo {
 
     @SuppressWarnings("unchecked")
     public NaverOAuth2UserInfo(Map<String, Object> attributes) {
-        super((Map<String, Object>) attributes.get("response"));
+        super("naver", (Map<String, Object>) attributes.get("response"));
     }
 
     @Override
-    public String getProviderUserId() {
+    public String getExternalId() {
         return (String) this.attributes.get("id");
     }
 

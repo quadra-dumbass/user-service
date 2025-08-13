@@ -1,13 +1,16 @@
 package com.quadra.userservice.infrastructure.repository.user.schema;
 
-import com.quadra.userservice.domain.security.oauth.enums.OAuth2Provider;
+import com.quadra.userservice.application.security.oauth.enums.OAuth2Provider;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity(name = "user_oauth_conns")
-@NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class UserOAuthConnSchema {
     @Id

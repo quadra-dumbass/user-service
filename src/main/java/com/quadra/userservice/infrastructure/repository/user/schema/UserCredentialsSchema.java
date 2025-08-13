@@ -2,13 +2,20 @@ package com.quadra.userservice.infrastructure.repository.user.schema;
 
 import com.quadra.userservice.domain.user.entity.User;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity(name = "user_credentials")
+@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class UserCredentialsSchema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

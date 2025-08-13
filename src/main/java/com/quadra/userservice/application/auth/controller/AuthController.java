@@ -1,8 +1,7 @@
-package com.quadra.userservice.application.controller;
+package com.quadra.userservice.application.auth.controller;
 
-import com.quadra.userservice.application.dto.LoginRequestDto;
-import com.quadra.userservice.application.dto.RegisterRequestDto;
-import com.quadra.userservice.application.service.UserService;
+import com.quadra.userservice.application.auth.dto.LoginRequestDto;
+import com.quadra.userservice.application.auth.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
-public class UserController {
-    private final UserService userService;
+public class AuthController {
+    private final AuthService userService;
 
     @GetMapping("/register")
     public ResponseEntity<?> register() {
