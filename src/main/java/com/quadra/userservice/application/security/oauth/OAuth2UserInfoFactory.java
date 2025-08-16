@@ -1,7 +1,5 @@
 package com.quadra.userservice.application.security.oauth;
 
-import com.quadra.userservice.application.security.oauth.enums.OAuth2Provider;
-
 import java.util.Map;
 
 public class OAuth2UserInfoFactory {

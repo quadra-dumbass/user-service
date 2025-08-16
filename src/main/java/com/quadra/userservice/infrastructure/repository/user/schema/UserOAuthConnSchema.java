@@ -1,6 +1,6 @@
 package com.quadra.userservice.infrastructure.repository.user.schema;
 
-import com.quadra.userservice.application.security.oauth.enums.OAuth2Provider;
+import com.quadra.userservice.domain.user.enums.OAuth2Provider;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -17,7 +17,7 @@ public class UserOAuthConnSchema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
     private UserSchema user;
 
@@ -25,13 +25,13 @@ public class UserOAuthConnSchema {
     @Column(name = "provider", nullable = false)
     private OAuth2Provider provider;
 
-    @Column(name = "provider_user_id", nullable = false)
-    private String providerUserId;
+    @Column(name = "external_id", nullable = false)
+    private String externalId;
 
     @Builder
-    public UserOAuthConnSchema(UserSchema user, OAuth2Provider provider, String providerUserId) {
+    public UserOAuthConnSchema(UserSchema user, OAuth2Provider provider, String externalId) {
         this.user = user;
         this.provider = provider;
-        this.providerUserId = providerUserId;
+        this.externalId = externalId;
     }
 }

@@ -29,20 +29,22 @@ public class JwtUtils {
     }
 
     // jwt header and payload must be modified later
-    public String createAccessToken(long currentTimeMillis, long id) {
+    public String createAccessToken(String userId, String role, String provider, long currentTimeMillis) {
+
         return JWT.create()
-                .withSubject("jwt-access")
-                .withClaim("id", id)
+                .withSubject(userId)
+                .withClaim("role", role)
+                .withClaim("provider", provider)
                 .withIssuedAt(new Date(currentTimeMillis))
                 .withExpiresAt(new Date(currentTimeMillis + this.accessExpiresInSeconds * 1000L))
                 .sign(Algorithm.HMAC256(this.accessSecret));
     }
 
     // jwt header and payload must be modified later
-    public String createRefreshToken(long currentTimeMillis, long id) {
+    public String createRefreshToken(String userId, long currentTimeMillis) {
+
         return JWT.create()
-                .withSubject("jwt-refresh")
-                .withClaim("id", id)
+                .withSubject(userId)
                 .withIssuedAt(new Date(currentTimeMillis))
                 .withExpiresAt(new Date(currentTimeMillis + this.refreshExpiresInSeconds * 1000L))
                 .sign(Algorithm.HMAC256(this.refreshSecret));
@@ -52,7 +54,7 @@ public class JwtUtils {
         try {
             JWT.require(Algorithm.HMAC256(this.accessSecret)).build().verify(token);
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -61,7 +63,7 @@ public class JwtUtils {
         try {
             JWT.require(Algorithm.HMAC256(this.refreshSecret)).build().verify(token);
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

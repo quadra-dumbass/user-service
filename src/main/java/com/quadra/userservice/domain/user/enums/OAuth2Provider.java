@@ -3,15 +3,14 @@ package com.quadra.userservice.domain.user.enums;
 import lombok.Getter;
 
 @Getter
-public enum LoginType {
-    QUADRA("quadra"),
+public enum OAuth2Provider {
     GOOGLE("google"),
     KAKAO("kakao"),
     NAVER("naver");
 
     private final String value;
 
-    LoginType(String value) {
+    OAuth2Provider(String value) {
         this.value = value;
     }
 }

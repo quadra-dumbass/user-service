@@ -19,7 +19,8 @@ dependencies {
     // Spring DB-related libraries
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    // implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    // 나중에 implementation으로 바꾸기
+    testImplementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     // Spring Security & OAuth2
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
@@ -35,5 +36,5 @@ dependencies {
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 
     // Redis for testing only
-    // testImplementation("it.ozimov:embedded-redis:0.7.3")
+    testImplementation("it.ozimov:embedded-redis:0.7.3")
 }

@@ -8,7 +8,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class RegisterRequestDto {
+    private String name;
+    private String loginId;
     private String email;
     private String password;
-    private String provider;
+    // private String provider;
 }

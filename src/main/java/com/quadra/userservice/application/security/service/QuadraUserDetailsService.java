@@ -6,6 +6,7 @@ import com.quadra.userservice.domain.user.entity.UserCredentials;
 import com.quadra.userservice.domain.user.repository.UserCredentialsRepository;
 import com.quadra.userservice.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,7 +31,7 @@ public class QuadraUserDetailsService implements UserDetailsService {
         User user = userRepository.findById(userCredentials.getUserId())
                 .orElseThrow(() -> new IllegalStateException("user not found"));
 
-        return toUserDetails(user, userCredentials);
+        return this.toUserDetails(user, userCredentials);
     }
 
     private UserDetails toUserDetails(User user, UserCredentials userCredentials) {
