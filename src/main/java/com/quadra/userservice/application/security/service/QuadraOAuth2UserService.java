@@ -43,11 +43,15 @@ public class QuadraOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         // create a OAuth2UserInfo
         OAuth2UserInfo userInfo = OAuth2UserInfoFactory.of(provider, attributes);
+        log.info("OAuth2UserInfo");
+        log.info(userInfo.toString());
 
         log.info("findOrCreateUser start");
         User user = findOrCreateUser(userInfo);
 
-        return toOAuth2User(user, userInfo);
+        OAuth2User ret = toOAuth2User(user, userInfo);
+        log.info(ret.toString());
+        return ret;
     }
 
     private User findOrCreateUser(OAuth2UserInfo userInfo) {

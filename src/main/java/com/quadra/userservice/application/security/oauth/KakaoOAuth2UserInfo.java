@@ -2,15 +2,17 @@ package com.quadra.userservice.application.security.oauth;
 
 import java.util.Map;
 
-// To be modified later.
 public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
 
     private final String id;
+    private final String name;
 
     @SuppressWarnings("unchecked")
     public KakaoOAuth2UserInfo(Map<String, Object> attributes) {
         super("kakao", (Map<String, Object>) attributes.get("kakao_account"));
         this.id = attributes.get("id").toString();
+        Map<String, Object> profile = (Map<String, Object>) this.attributes.get("profile");
+        this.name = profile.get("nickname").toString();
     }
 
     @Override
@@ -25,6 +27,6 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
 
     @Override
     public String getName() {
-        return (String) this.attributes.get("name");
+        return this.name;
     }
 }

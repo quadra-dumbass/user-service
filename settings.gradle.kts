@@ -1,13 +1,13 @@
 pluginManagement {
-    val githubUser: String? = System.getenv("GITHUB_ACTOR") ?: providers.gradleProperty("gpr.user").orNull
-    val githubToken: String? = System.getenv("GITHUB_TOKEN") ?: providers.gradleProperty("gpr.key").orNull
+    val githubPluginUser: String? = providers.gradleProperty("gpr.plugin.user").orNull ?: System.getenv("GITHUB_PLUGIN_USER")
+    val githubPluginToken: String? = providers.gradleProperty("gpr.plugin.token").orNull ?: System.getenv("GITHUB_PLUGIN_TOKEN")
     repositories {
         gradlePluginPortal()
         maven {
             url = uri("https://maven.pkg.github.com/quadra-dumbass/convention-plugins")
             credentials {
-                username = githubUser
-                password = githubToken
+                username = githubPluginUser
+                password = githubPluginToken
             }
         }
     }

@@ -1,13 +1,9 @@
 plugins {
-    id("com.quadra.spring-conventions") version "1.0.0"
+    id("com.quadra.spring-conventions") version "1.0.1"
 }
 
 group = "com.quadra"
 version = "0.0.1-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     // Spring Web MVC
@@ -34,7 +30,4 @@ dependencies {
 
     // MariaDB for dev
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-
-    // Redis for testing only
-    testImplementation("it.ozimov:embedded-redis:0.7.3")
 }

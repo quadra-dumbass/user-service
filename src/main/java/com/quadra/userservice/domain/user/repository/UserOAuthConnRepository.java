@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface UserOAuthConnRepository {
     UserOAuthConn save(UserOAuthConn userOAuthConn);
-    Optional<UserOAuthConn> findByProviderAndExternalId(String provider, String providerUserId);
+    Optional<UserOAuthConn> findByProviderAndExternalId(String provider, String externalId);
 }

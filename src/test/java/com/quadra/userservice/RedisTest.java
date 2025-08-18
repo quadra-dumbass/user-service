@@ -36,7 +36,7 @@ public class RedisTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(""))
                 .andExpect(status().isOk());
-
+        
         redisTemplate.opsForValue().get("");
         System.out.println(redisTemplate.opsForValue().get(""));
     }
